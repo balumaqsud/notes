@@ -7,10 +7,12 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 //fronted engine
-app.set("view engine", "ejs");
 app.set("views", "views");
+app.set("view engine", "ejs");
 
 //routing
 app.get("/", (req, res) => {
-  res.send("hello");
+  res.render("notes");
 });
+
+module.exports = app;
