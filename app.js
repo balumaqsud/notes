@@ -9,3 +9,8 @@ app.use(express.json());
 //fronted engine
 app.set("view engine", "ejs");
 app.set("views", "views");
+
+//routing
+app.get("/", (req, res) => {
+  res.send("hello");
+});
