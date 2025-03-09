@@ -14,20 +14,32 @@
     <div class="container m-4 ms-5">
       <nav class="navbar row mb-2">
         <div class="col p-0"><h5>Notes</h5></div>
-        <div class="col d-flex justify-content-end pe-0">
-          <button class="border rounded px-3">create</button>
+        <div class="col d-flex justify-content-end pe-0 hover">
+          <button class="create border rounded px-3">create</button>
         </div>
       </nav>
-      <div class="row gap-2 d-flex justify-content-between">
+      <div class="lists_div row gap-2 d-flex justify-content-between">
         <div class="col-3 align-self-stretch border rounded-3 p-3">
-          <h6>All Notes</h6>
-          <ul>
-            <li>list</li>
+          <h6 class="pb-2">All Notes</h6>
+          <ul class="list-group">
+            <li
+              class="list-group-itemp p-1 mb-3 list-group-item-indo d-flex align-items-center justify-content-between"
+            >
+              <div>
+                <h6 class="text m-0 text-bold">title</h6>
+                <p class="text m-0 fs-6">materials</p>
+              </div>
+              <div>
+                <button class="delete btn btn-light btn-sm">
+                  <img src="icons/d.svg" />
+                </button>
+              </div>
+            </li>
           </ul>
         </div>
-        <div class="col align-self-stretch border rounded-3 p-3">
-          <div>title</div>
-          <div>textarea</div>
+        <div class="notes_div col align-self-stretch border rounded-3 p-3">
+          <div><h6>Enter title here</h6></div>
+          <div>What's in your mind?</div>
         </div>
       </div>
     </div>
