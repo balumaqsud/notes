@@ -23,10 +23,15 @@
         </div>
       </nav>
       <div
-        class="main_div row gap-2 d-flex justify-content-between"
+        class="main_div row d-flex justify-content-between"
         style="height: 670px"
       >
-        <div class="list_div col-3 align-self-stretch border rounded-3 p-3">
+       
+        <div class="notes_div col-12 col-md-8 align-self-stretch border rounded-3 p-3">
+          <div><h6>Enter title here</h6></div>
+          <div class="text-secondary">What's in your mind?</div>
+        </div>
+         <div class="list_div col-12 col-md-4 align-self-stretch border rounded-3 p-3">
           <h6 class="pb-2">All Notes</h6>
           <ul class="list-group">
             <% items.map((item) => { %>
@@ -45,10 +50,6 @@
             </li>
             <% }) %>
           </ul>
-        </div>
-        <div class="notes_div col align-self-stretch border rounded-3 p-3">
-          <div><h6>Enter title here</h6></div>
-          <div class="text-secondary">What's in your mind?</div>
         </div>
       </div>
     </div>
