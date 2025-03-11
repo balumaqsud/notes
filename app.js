@@ -1,5 +1,11 @@
 const express = require("express");
+const mongodb = require("mongodb");
+//app
 const app = express();
+
+//to use client in app
+const db = require("./server").db();
+console.log("this is ", db);
 
 //middlewares
 app.use(express.static("public"));

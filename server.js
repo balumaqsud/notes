@@ -1,23 +1,24 @@
-const mongodb = require("mongodb");
 const http = require("http");
-const app = require("./app");
+const mongodb = require("mongodb");
 require("dotenv").config();
 
 //mongo connection
-MONGO_URL = process.env.MONGO_URI;
+const MONGO_URL = process.env.MONGO_URI;
 
 mongodb.connect(
   MONGO_URL,
   { useNewUrlParser: true, useUnifiedTopology: true },
   (err, client) => {
     if (err) {
-      console.log("mongo could not connect");
+      console.log(`this the error ${err}`);
     } else {
-      PORT = process.env.PORT;
+      console.log("mongo successfully connected");
       module.exports = client;
+      let PORT = process.env.PORT;
+      const app = require("./app");
       const server = http.createServer(app);
       server.listen(PORT, () => {
-        console.log(`successfully connected to mongo and running in ${PORT}`);
+        console.log(`server is running in port ${PORT}`);
       });
     }
   }
