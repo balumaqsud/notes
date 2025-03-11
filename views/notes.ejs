@@ -29,12 +29,13 @@
         <div class="list_div col-3 align-self-stretch border rounded-3 p-3">
           <h6 class="pb-2">All Notes</h6>
           <ul class="list-group">
+            <% items.map((item) => { %>
             <li
               class="list-group-itemp p-1 mb-3 list-group-item-indo d-flex align-items-center justify-content-between"
             >
               <div>
-                <h6 class="text m-0 text-bold">title</h6>
-                <p class="text m-0 fs-6 text-secondary">materials</p>
+                <h6 class="text m-0 text-bold"><%=item.title%></h6>
+                <p class="text m-0 fs-6 text-secondary"><%=item.body%></p>
               </div>
               <div>
                 <button class="delete btn btn-light btn-sm">
@@ -42,6 +43,7 @@
                 </button>
               </div>
             </li>
+            <% }) %>
           </ul>
         </div>
         <div class="notes_div col align-self-stretch border rounded-3 p-3">

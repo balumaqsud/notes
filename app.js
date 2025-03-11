@@ -5,7 +5,6 @@ const app = express();
 
 //to use client in app
 const db = require("./server").db();
-console.log("this is ", db);
 
 //middlewares
 app.use(express.static("public"));
@@ -18,7 +17,15 @@ app.set("view engine", "ejs");
 
 //routing
 app.get("/", (req, res) => {
-  res.render("notes");
+  db.collection("notes_collection")
+    .find()
+    .toArray((err, data) => {
+      if (err) {
+        console.log(er);
+      } else {
+        res.render("notes", { items: data });
+      }
+    });
 });
 
 module.exports = app;
