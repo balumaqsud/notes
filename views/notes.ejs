@@ -8,30 +8,31 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="/main.css" />
     <title>Notes App</title>
+    
   </head>
   <body>
-    <div class="container m-3 ms-5">
-      <nav class="navbar row mb-2">
-        <div class="col p-0"><h4>Notes app</h4></div>
-        <div class="col d-flex justify-content-end pe-0 hover">
+    <div class="container">
+      <div class="navbar mt-2">
+        <div class=""><h4>Notes app</h4></div>
+        <div class="create hover  ms-auto">
           <button
             class="create btn btn-outline-secondary border rounded px-3 text-secondary-emphasis"
           >
-            create
+            + new
           </button>
         </div>
-      </nav>
+      </div>
       <div
         class="main_div row d-flex justify-content-between"
         style="height: 670px"
       >
-       
-        <div class="notes_div col-12 col-md-8 align-self-stretch border rounded-3 p-3">
+        <div class="notes_div col-12 col-md-9 align-self-stretch border rounded-3 p-3">
           <div><h6>Enter title here</h6></div>
           <div class="text-secondary">What's in your mind?</div>
         </div>
-         <div class="list_div col-12 col-md-4 align-self-stretch border rounded-3 p-3">
+         <div class="list_div col-12 col-md-3 align-self-stretch border rounded-3 p-3">
           <h6 class="pb-2">All Notes</h6>
           <ul class="list-group">
             <% items.map((item) => { %>
@@ -52,8 +53,7 @@
           </ul>
         </div>
       </div>
-    </div>
-    <div class="d-flex align-items-center justify-content-center pb-0 mb-0">
+      <div class="footer d-flex align-items-center justify-content-center pb-0 mt-2">
       <p>
         © 2025 Ollobergan Abdulla | my
         <a
@@ -63,6 +63,8 @@
         >
       </p>
     </div>
+    </div>
+    
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </body>
 </html>

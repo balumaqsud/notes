@@ -1,0 +1,38 @@
+    @media (max-width: 767px) {
+        .container {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+        }
+        .navbar {
+          width: 100%;
+          max-width: 400px;
+          justify-content: space-between;
+          align-items: center;
+        }
+      
+        .main_div {
+          width: 100%; /* Ensure it takes full width */
+          max-width: 400px; /* Optional: Limit max width for better readability */
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+        }
+        .notes_div {
+          height: 70%; /* 68% height for notes div */
+          margin-bottom: 4px;
+        }
+        .list_div {
+          height: 29%; /* 30% height for list div */
+     
+        }
+      }
+
+      /* Custom height for medium and larger devices */
+      @media (min-width: 768px) {
+        .notes_div, .list_div {
+          height: auto; /* Auto height for larger devices */
+        }
+      }
