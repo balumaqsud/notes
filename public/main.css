@@ -1,3 +1,16 @@
+body {
+     font-family: 'Montserrat', sans-serif;
+}
+h4 {
+    font-weight: 900; /* Bold */
+}
+h6 {
+    font-weight: 600; /* Bold */
+}
+
+p {
+    font-weight: 400; /* Regular */
+}
 .main_title {
   margin-left: -12px;
 }
