@@ -63,13 +63,14 @@
           class="list_div col-12 col-md-3 align-self-stretch border rounded-3 p-3"
         >
           <h6 class="pb-2">All Notes</h6>
-          <ul class="list-group"><% items.map((item) => { %>
+          <ul class="list-group">
+            <% items.map((item) => { %>
             <li
               class="list-group-itemp p-1 mb-3 list-group-item-indo d-flex align-items-center justify-content-between"
             >
               <div>
-                <h6 class=" m-0 "><%=item.title%></h6>
-                <p class="m-0 text-secondary"><%=item.body%></p>
+                <h6 class="list_title m-0 "><%=item.title%></h6>
+                <p class="list_body m-0 text-secondary"><%=item.body%></p>
               </div>
               <div>
                 <button class="delete_button btn btn-light btn-sm">

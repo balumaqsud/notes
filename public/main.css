@@ -31,7 +31,21 @@ textarea {
   border: 0;  
   outline: none;
  
-  }
+}
+.list_title {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  padding-right: 8px;
+}
+.list_body {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  padding-right: 6px;
+}
 
     @media (max-width: 767px) {
         .main_title {
