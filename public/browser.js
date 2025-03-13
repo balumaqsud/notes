@@ -1,2 +1,3 @@
-const form = document.getElementById("create-form");
-console.log(form);
+document.getElementById("create-form").addEventListener("submit", (e) => {
+  e.preventDefault();
+});

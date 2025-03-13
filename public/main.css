@@ -23,6 +23,7 @@ input {
   width: 100%;
   border: 0;
   outline: none;
+  font-weight: 600;
 }
 
 textarea { 

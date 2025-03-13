@@ -73,7 +73,7 @@
                 <p class="list_body m-0 text-secondary"><%=item.body%></p>
               </div>
               <div>
-                <button class="delete_button btn btn-light btn-sm">
+                <button data-id="<%=item._id%>" class="delete_button btn btn-light btn-sm">
                   <img width="18px" height="22px" src="icons/trash.svg" />
                 </button>
               </div>
@@ -94,6 +94,7 @@
         </p>
       </div>
     </div>
+    <script src="/browser.js"></script>
     <script src="https://unpkg.com/axios@1.6.7/dist/axios.min.js"></script>
   </body>
 </html>
