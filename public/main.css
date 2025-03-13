@@ -1,15 +1,13 @@
 body {
      font-family: 'Montserrat', sans-serif;
 }
-h4 {
-    font-weight: 900; /* Bold */
-}
-h6 {
+h4, h6 {
     font-weight: 600; /* Bold */
 }
 
 p {
     font-weight: 400; /* Regular */
+    font-size: 14px;
 }
 .main_title {
   margin-left: -12px;
@@ -17,9 +15,7 @@ p {
 .create_btn_class {
   margin-right: -12px;
 }
-svg {
-  fill: red;
-}
+
     @media (max-width: 767px) {
         .main_title {
          margin-left: 0px;
