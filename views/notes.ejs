@@ -9,15 +9,17 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="/main.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;900&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;900&display=swap"
+      rel="stylesheet"
+    />
     <title>Notes App</title>
-    
   </head>
   <body>
     <div class="container">
       <div class="navbar mt-2 mb-1">
         <div class="main_title"><h4>Notes</h4></div>
-        <div class="create_btn_class hover  ms-auto">
+        <div class="create_btn_class hover ms-auto">
           <button
             class="create_btn btn btn-outline-success border rounded px-3"
           >
@@ -26,17 +28,42 @@
         </div>
       </div>
       <div
-        class="main_div row d-flex justify-content-between"
+        class="main_div row d-flex justify-content-between mb-1"
         style="height: 670px"
       >
-        <div class="notes_div col-12 col-md-9 align-self-stretch border rounded-3 p-3">
-          <div><h6>Enter title here</h6></div>
-          <div class="text-secondary">What's in your mind?</div>
+        <div
+          class="notes_div col-12 col-md-9 align-self-stretch border rounded-3 p-3"
+        >
+          <form id="create-form" action="/create-item" method="post">
+            <div class="title_div mb-2">
+              <input
+                type="text"
+                class="form_title "
+                id="form_input_title"
+                placeholder="Enter title here"
+              />
+            </div>
+            <div class="mb-1"> 
+              <textarea
+                class="form_body"
+                id="form_textarea_body"
+                rows="14"
+                placeholder="What's in your mind?"
+              ></textarea>
+            </div>
+            <div class="d-flex justify-content-end ">
+            <button
+              class="create_btn btn btn-outline-success border rounded px-3"
+            > Save
+            </button>
+            </div>
+          </form>
         </div>
-         <div class="list_div col-12 col-md-3 align-self-stretch border rounded-3 p-3">
+        <div
+          class="list_div col-12 col-md-3 align-self-stretch border rounded-3 p-3"
+        >
           <h6 class="pb-2">All Notes</h6>
-          <ul class="list-group">
-            <% items.map((item) => { %>
+          <ul class="list-group"><% items.map((item) => { %>
             <li
               class="list-group-itemp p-1 mb-3 list-group-item-indo d-flex align-items-center justify-content-between"
             >
@@ -50,22 +77,23 @@
                 </button>
               </div>
             </li>
-            <% }) %>
-          </ul>
+            <%})%></ul>
         </div>
       </div>
-      <div class="footer d-flex align-items-center justify-content-center pb-0 mt-2">
-      <p>
-        © 2025 by Ollobergan Abdulla | my
-        <a
-          href="https://github.com/balumaqsud"
-          class="link-success link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"
-          >Github</a
-        >
-      </p>
+      <div
+        class="footer d-flex align-items-center justify-content-center pb-0 mt-4"
+      >
+        <p>
+          © 2025 by Ollobergan Abdulla | my
+          <a
+            href="https://github.com/balumaqsud"
+            class="link-success link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"
+            >Github</a
+          >
+        </p>
+      </div>
     </div>
-    </div>
-    
+
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </body>
 </html>

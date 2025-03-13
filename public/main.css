@@ -5,9 +5,8 @@ h4, h6 {
     font-weight: 600; /* Bold */
 }
 
-p {
+p, input, textarea {
     font-weight: 400; /* Regular */
-    font-size: 14px;
 }
 .main_title {
   margin-left: -12px;
@@ -15,6 +14,24 @@ p {
 .create_btn_class {
   margin-right: -12px;
 }
+
+/* form  */
+form {
+  margin: 0;
+}
+input {
+  width: 100%;
+  border: 0;
+  outline: none;
+}
+
+textarea { 
+  width: 100%;
+  height: 86%;
+  border: 0;  
+  outline: none;
+ 
+  }
 
     @media (max-width: 767px) {
         .main_title {
