@@ -41,6 +41,7 @@
                 class="form_title "
                 id="form_input_title"
                 placeholder="Enter title here"
+                autocomplete="off"
               />
             </div>
             <div class="mb-1"> 
@@ -71,6 +72,7 @@
               <div>
                 <h6 class="list_title m-0 "><%=item.title%></h6>
                 <p class="list_body m-0 text-secondary"><%=item.body%></p>
+                <p style="font-size: 12px;"><%=moment().format("DD.YY.YYYY")%></p>
               </div>
               <div>
                 <button data-id="<%=item._id%>" class="delete_button btn btn-light btn-sm">

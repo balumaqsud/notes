@@ -1,5 +1,6 @@
 const express = require("express");
 const mongodb = require("mongodb");
+const moment = require("moment");
 //app
 const app = express();
 
@@ -27,6 +28,18 @@ app.post("/create-item", (req, res) => {
   );
 });
 
+app.post("/delete-item", (req, res) => {
+  const id = req.body.id;
+  db.collection("notes_collection").deleteOne(
+    {
+      _id: new mongodb.ObjectId(id),
+    },
+    (err, data) => {
+      res.json({ state: "succes" });
+    }
+  );
+});
+
 app.get("/", (req, res) => {
   db.collection("notes_collection")
     .find()
@@ -34,7 +47,7 @@ app.get("/", (req, res) => {
       if (err) {
         console.log(er);
       } else {
-        res.render("notes", { items: data });
+        res.render("notes", { items: data, moment: moment });
       }
     });
 });
