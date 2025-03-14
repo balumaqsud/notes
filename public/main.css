@@ -39,6 +39,7 @@ textarea {
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
   padding-right: 8px;
+  width: 18ch;
 }
 .list_body {
   overflow: hidden;

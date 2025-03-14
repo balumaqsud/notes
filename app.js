@@ -16,6 +16,17 @@ app.set("views", "views");
 app.set("view engine", "ejs");
 
 //routing
+app.post("/create-item", (req, res) => {
+  const title = req.body.title;
+  const body = req.body.body;
+  db.collection("notes_collection").insertOne(
+    { title: title, body: body },
+    (err, data) => {
+      res.json(data.ops[0]);
+    }
+  );
+});
+
 app.get("/", (req, res) => {
   db.collection("notes_collection")
     .find()
