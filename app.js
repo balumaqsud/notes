@@ -35,7 +35,11 @@ app.post("/delete-item", (req, res) => {
       _id: new mongodb.ObjectId(id),
     },
     (err, data) => {
-      res.json({ state: "succes" });
+      if (err) {
+        return res.json("error");
+      } else {
+        res.redirect("/");
+      }
     }
   );
 });

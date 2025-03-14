@@ -42,10 +42,14 @@ document.getElementById("create-form").addEventListener("submit", (e) => {
 //operations
 document.addEventListener("click", (e) => {
   data_id = e.target.getAttribute("data-id");
-  axios
-    .post("/delete-item", { id: data_id })
-    .then((response) => {
-      e.target.parentElement.parentElement.remove();
-    })
-    .catch((err) => err);
+  console.log(data_id);
+  if (e.target.classList.contains("delete_button")) {
+    axios
+      .post("/delete-item", { id: data_id })
+      .then((response) => {
+        e.target.parentElement.parentElement.remove();
+        location.reload();
+      })
+      .catch((err) => err);
+  }
 });
