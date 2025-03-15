@@ -34,6 +34,7 @@ app.post("/create-item", (req, res) => {
 
 app.post("/delete-item", (req, res) => {
   const id = req.body.id;
+  if (!mongodb.ObjectId.isValid(id)) return res.json("Invalid ID");
   db.collection("notes_collection").deleteOne(
     {
       _id: new mongodb.ObjectId(id),
@@ -42,7 +43,7 @@ app.post("/delete-item", (req, res) => {
       if (err) {
         return res.json("error");
       } else {
-        res.redirect("/");
+        res.json({ success: true });
       }
     }
   );

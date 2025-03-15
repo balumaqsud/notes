@@ -5,7 +5,7 @@ const addListItmes = (item) => {
               <div>
                 <h6 class="list_title m-0 ">${item.title}</h6>
                 <p class="list_body m-0 text-secondary">${item.body}</p>
-                <p>${item.createdAt}</p>
+                <p style="font-size: 12px;">${item.createdAt}</p>
               </div>
               <div>
                 <button data-id="${item._id}" class="delete_button btn btn-light btn-sm">
@@ -27,7 +27,7 @@ document.getElementById("create-form").addEventListener("submit", (e) => {
     .then((response) => {
       document
         .getElementById("notes_ul")
-        .insertAdjacentHTML("afterbegin", addListItmes(response.data));
+        .insertAdjacentHTML("beforeend", addListItmes(response.data));
       title_input.value = "";
       body_input.value = "";
       title_input.focus();
@@ -39,15 +39,27 @@ document.getElementById("create-form").addEventListener("submit", (e) => {
 
 //operations
 document.addEventListener("click", (e) => {
-  data_id = e.target.getAttribute("data-id");
-  console.log(data_id);
+  if (e.target.tagName === "IMG") {
+    e.stopPropagation();
+    e.target.closest(".delete_button").click();
+  }
+  ///
+  let button = e.target.closest(".delete_button");
+  if (!button) return;
+
+  let data_id = button.getAttribute("data-id");
+  console.log("dd", data_id);
   if (e.target.classList.contains("delete_button")) {
     axios
-      .post("/delete-item", { id: data_id })
+      .post("delete-item", { id: data_id })
       .then((response) => {
-        e.target.parentElement.parentElement.remove();
-        location.reload();
+        if (response.data.success) {
+          button.closest("li").remove();
+        } else {
+          console.error("Delete failed:", response.data.error);
+        }
       })
       .catch((err) => err);
   }
+  if()
 });

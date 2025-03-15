@@ -23,7 +23,7 @@
           <button
             class="create_btn btn btn-outline-success border rounded px-3"
           >
-            + new
+            Clear
           </button>
         </div>
       </div>
@@ -65,17 +65,17 @@
         >
           <h6 class="pb-2">All Notes</h6>
           <ul id="notes_ul" class="list-group">
-            <% items.map((item) => { %>
+            <% items.forEach((item) => { %>
             <li
               class="list-group-itemp p-1 mb-3 list-group-item-indo d-flex align-items-center justify-content-between"
             >
               <div>
                 <h6 class="list_title m-0 "><%=item.title%></h6>
                 <p class="list_body m-0 text-secondary"><%=item.body%></p>
-                <p style="font-size: 11px;"><%=item.createdAt%></p>
+                <p style="font-size: 12px;"><%=item.createdAt%></p>
               </div>
               <div>
-                <button data-id="<%=item._id%>" class="delete_button btn btn-light btn-sm">
+                <button data-id="<%=item._id.toString()%>" class="delete_button btn btn-light btn-sm">
                   <img width="18px" height="22px" src="icons/trash.svg" />
                 </button>
               </div>
