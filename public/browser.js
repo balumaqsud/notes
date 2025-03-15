@@ -51,6 +51,10 @@ document.addEventListener("click", (e) => {
       .then((response) => location.reload())
       .catch((err) => err);
   }
+
+  if (e.target.classList.contains("list-group-itemp")) {
+    /////
+  }
   ///delete
   if (e.target.tagName === "IMG") {
     e.stopPropagation();
