@@ -5,12 +5,10 @@ const addListItmes = (item) => {
               <div>
                 <h6 class="list_title m-0 ">${item.title}</h6>
                 <p class="list_body m-0 text-secondary">${item.body}</p>
-                <p>${moment().format("DD.YY.YYYY")}</p>
+                <p>${item.createdAt}</p>
               </div>
               <div>
-                <button data-id="${
-                  item._id
-                }" class="delete_button btn btn-light btn-sm">
+                <button data-id="${item._id}" class="delete_button btn btn-light btn-sm">
                   <img width="18px" height="22px" src="icons/trash.svg" />
                 </button>
               </div>

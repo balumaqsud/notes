@@ -1,6 +1,6 @@
 const express = require("express");
 const mongodb = require("mongodb");
-const moment = require("moment");
+
 //app
 const app = express();
 
@@ -21,7 +21,11 @@ app.post("/create-item", (req, res) => {
   const title = req.body.title;
   const body = req.body.body;
   db.collection("notes_collection").insertOne(
-    { title: title, body: body },
+    {
+      title: title,
+      body: body,
+      createdAt: new Date().toISOString().split("T")[0],
+    },
     (err, data) => {
       res.json(data.ops[0]);
     }
@@ -51,7 +55,7 @@ app.get("/", (req, res) => {
       if (err) {
         console.log(er);
       } else {
-        res.render("notes", { items: data, moment: moment });
+        res.render("notes", { items: data });
       }
     });
 });
