@@ -19,36 +19,46 @@ document.getElementById("create-form").addEventListener("submit", (e) => {
   e.preventDefault();
   let title_input = document.getElementById("form_input_title");
   let body_input = document.getElementById("form_textarea_body");
-  axios
-    .post("/create-item", {
-      title: title_input.value,
-      body: body_input.value,
-    })
-    .then((response) => {
-      document
-        .getElementById("notes_ul")
-        .insertAdjacentHTML("beforeend", addListItmes(response.data));
-      title_input.value = "";
-      body_input.value = "";
-      title_input.focus();
-    })
-    .catch((error) =>
-      console.log(`something went wrong in axios.post-then with ${error}`)
-    );
+
+  if (title_input.value !== "" || body_input.value !== "") {
+    axios
+      .post("/create-item", {
+        title: title_input.value,
+        body: body_input.value,
+      })
+      .then((response) => {
+        document
+          .getElementById("notes_ul")
+          .insertAdjacentHTML("beforeend", addListItmes(response.data));
+        title_input.value = "";
+        body_input.value = "";
+        title_input.focus();
+      })
+      .catch((error) =>
+        console.log(`something went wrong in axios.post-then with ${error}`)
+      );
+  } else {
+    alert("Please name the note! and write someting!");
+  }
 });
 
 //operations
 document.addEventListener("click", (e) => {
+  // clear
+  if (e.target.classList.contains("clear_btn")) {
+    axios
+      .post("/clear-all", { clear_all: true })
+      .then((response) => location.reload())
+      .catch((err) => err);
+  }
+  ///delete
   if (e.target.tagName === "IMG") {
     e.stopPropagation();
     e.target.closest(".delete_button").click();
   }
-  ///
-  let button = e.target.closest(".delete_button");
-  if (!button) return;
 
+  let button = e.target.closest(".delete_button");
   let data_id = button.getAttribute("data-id");
-  console.log("dd", data_id);
   if (e.target.classList.contains("delete_button")) {
     axios
       .post("delete-item", { id: data_id })
@@ -61,5 +71,4 @@ document.addEventListener("click", (e) => {
       })
       .catch((err) => err);
   }
-  if()
 });

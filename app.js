@@ -49,6 +49,15 @@ app.post("/delete-item", (req, res) => {
   );
 });
 
+//clear_all
+app.post("/clear-all", (req, res) => {
+  if (req.body.clear_all) {
+    db.collection("notes_collection").deleteMany(() => {
+      res.json({ state: "cleared" });
+    });
+  }
+});
+
 app.get("/", (req, res) => {
   db.collection("notes_collection")
     .find()
