@@ -7,9 +7,11 @@ h4, h6 {
 
 p, input, textarea {
     font-weight: 400; /* Regular */
+
 }
 .main_title {
   margin-left: -12px;
+  color: #159454;
 }
 .clear_btn_class {
   margin-right: -12px;
