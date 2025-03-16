@@ -18,6 +18,10 @@ p, input, textarea {
 li:hover {
     cursor: pointer;
 }
+.list_div {
+  max-height: 103%; 
+  overflow-y: auto;
+}
 
 /* form  */
 form {
@@ -87,7 +91,7 @@ textarea {
         }
         .list_div {
           height: 29%; /* 30% height for list div */
-     
+          overflow-y: auto;
         }
       }
 
