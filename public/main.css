@@ -1,5 +1,6 @@
 body {
      font-family: 'Montserrat', sans-serif;
+   
 }
 h4, h6 {
     font-weight: 600; /* Bold */
@@ -62,7 +63,7 @@ textarea {
         .main_title {
          margin-left: 0px;
           }
-          .create_btn_class {
+          .clear_btn_class {
              margin-right: 0px;
         }
         .container {
@@ -70,6 +71,7 @@ textarea {
           flex-direction: column;
           justify-content: center;
           align-items: center;
+         
         }
         .navbar {
           width: 100%;
@@ -87,7 +89,7 @@ textarea {
           align-items: center;
         }
         .notes_div {
-          height: 70%; /* 68% height for notes div */
+          height: 69%; /* 68% height for notes div */
           margin-bottom: 4px;
         }
         .list_div {
