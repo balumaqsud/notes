@@ -28,7 +28,7 @@
         </div>
       </div>
       <div
-        class="main_div row d-flex justify-content-between mb-1"
+        class="main_div row d-flex justify-content-between"
         style="height: 670px"
       >
         <div
@@ -48,7 +48,7 @@
               <textarea
                 class="form_body"
                 id="form_textarea_body"
-                rows="14"
+                rows="12"
                 placeholder="What's in your mind?"
               ></textarea>
             </div>
@@ -75,7 +75,7 @@
                 <p style="font-size: 12px; color:#0D7642;"><%=item.createdAt%></p>
               </div>
               <div>
-                <button data-id="<%=item._id.toString()%>" class="delete_button btn btn-light btn-sm">
+                <button data-id="<%=item._id.toString()%>" class="delete_button btn btn-light btn-xs">
                   <img width="18px" height="22px" src="icons/trash.svg" />
                 </button>
               </div>
