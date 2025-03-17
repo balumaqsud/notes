@@ -1,6 +1,5 @@
 body {
      font-family: 'Montserrat', sans-serif;
-   
 }
 h4, h6 {
     font-weight: 600; /* Bold */
@@ -19,6 +18,9 @@ p, input, textarea {
 
 li:hover {
     cursor: pointer;
+    border: 1px solid rgb(228, 227, 227);
+    border-radius: 3%;
+    box-sizing: border-box;
 }
 .list_div {
   max-height: 103%; 
