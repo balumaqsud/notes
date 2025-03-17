@@ -98,9 +98,4 @@ textarea {
         }
       }
 
-      /* Custom height for medium and larger devices */
-      @media (min-width: 768px) {
-        .notes_div, .list_div {
-          height: auto; /* Auto height for larger devices */
-        }
-      }
+     
