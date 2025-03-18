@@ -32,6 +32,19 @@ app.post("/create-item", (req, res) => {
   );
 });
 
+//update
+app.post("/update-item", (req, res) => {
+  const { id, title, body } = req.body;
+  db.collection("notes_collection").findOneAndUpdate(
+    { _id: new mongodb.ObjectId(id) },
+    { $set: { title: title, body: body } },
+    (err, data) => {
+      res.json({ state: "success" });
+    }
+  );
+});
+
+//delete
 app.post("/delete-item", (req, res) => {
   const id = req.body.id;
   if (!mongodb.ObjectId.isValid(id)) return res.json("Invalid ID");

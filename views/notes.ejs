@@ -66,7 +66,7 @@
           <h6 class="pb-2">All Notes</h6>
           <ul id="notes_ul" class="list-group">
             <% items.forEach((item) => { %>
-            <li 
+            <li data-id="<%=item._id.toString()%>"
               class="list-group-item-indo p-1 mb-3  d-flex align-items-center justify-content-between"
             >
               <div>

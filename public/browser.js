@@ -1,3 +1,4 @@
+let note_id = null;
 const addListItmes = (item) => {
   return `<li
               class="list-group-itemp p-1 mb-3 list-group-item-indo d-flex align-items-center justify-content-between"
@@ -41,6 +42,22 @@ document.getElementById("create-form").addEventListener("submit", (e) => {
   } else {
     alert("Please name the note! and write someting!");
   }
+  if (button.textContent === "Save New") {
+    axios
+      .post("/update-item", {
+        id: note_id,
+        title: title_input.value,
+        body: body_input.value,
+      })
+      .then((response) => {
+        console.log("added");
+      })
+      .catch((err) => {
+        err;
+      });
+  }
+
+  //buttons
   button.textContent = "Save";
 });
 
@@ -48,6 +65,7 @@ document.getElementById("create-form").addEventListener("submit", (e) => {
 document.addEventListener("click", (e) => {
   //list reading
   const li_item = e.target.closest(".list-group-item-indo");
+  note_id = li_item.getAttribute("data-id");
   if (li_item && !e.target.closest(".delete_button")) {
     const title = li_item.querySelector(".list_title").textContent.trim();
     const body = li_item.querySelector(".list_body").textContent.trim();
