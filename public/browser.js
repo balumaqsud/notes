@@ -19,6 +19,7 @@ document.getElementById("create-form").addEventListener("submit", (e) => {
   e.preventDefault();
   let title_input = document.getElementById("form_input_title");
   let body_input = document.getElementById("form_textarea_body");
+  let button = document.querySelector(".create_btn");
 
   if (title_input.value !== "" || body_input.value !== "") {
     axios
@@ -40,10 +41,26 @@ document.getElementById("create-form").addEventListener("submit", (e) => {
   } else {
     alert("Please name the note! and write someting!");
   }
+  button.textContent = "Save";
 });
 
 //operations
 document.addEventListener("click", (e) => {
+  //list reading
+  const li_item = e.target.closest(".list-group-item-indo");
+  if (li_item && !e.target.closest(".delete_button")) {
+    const title = li_item.querySelector(".list_title").textContent.trim();
+    const body = li_item.querySelector(".list_body").textContent.trim();
+
+    //populate form
+    document.getElementById("form_input_title").value = title;
+    document.getElementById("form_textarea_body").value = body;
+
+    //button
+    const button = document.querySelector(".create_btn");
+    button.textContent = "Save New";
+  }
+
   // clear
   if (e.target.classList.contains("clear_btn")) {
     axios
@@ -52,13 +69,13 @@ document.addEventListener("click", (e) => {
       .catch((err) => err);
   }
   ///delete
-  if (e.target.tagName === "IMG") {
+  if (
+    e.target.classList.contains("delete_button") ||
+    e.target.tagName === "IMG"
+  ) {
     e.stopPropagation();
-    e.target.closest(".delete_button").click();
-  }
-  if (e.target.classList.contains("delete_button")) {
-    let button = e.target.closest(".delete_button");
-    let data_id = button.getAttribute("data-id");
+    const button = e.target.closest(".delete_button");
+    const data_id = button.getAttribute("data-id");
     axios
       .post("delete-item", { id: data_id })
       .then((response) => {
@@ -69,18 +86,5 @@ document.addEventListener("click", (e) => {
         }
       })
       .catch((err) => err);
-  }
-});
-
-//another for update because it is big
-document.addEventListener("click", (e) => {
-  const li_item = e.target.closest(".list-group-item-indo");
-  if (li_item) {
-    const title = li_item.querySelector(".list_title").textContent.trim();
-    const body = li_item.querySelector(".list_body").textContent.trim();
-    console.log(title);
-    console.log(body);
-    document.getElementById("form_input_title").value = title;
-    document.getElementById("form_textarea_body").value = body;
   }
 });
