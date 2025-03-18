@@ -3,7 +3,6 @@ const mongodb = require("mongodb");
 
 //app
 const app = express();
-
 //to use client in app
 const db = require("./server").db();
 
@@ -17,6 +16,8 @@ app.set("views", "views");
 app.set("view engine", "ejs");
 
 //routing
+
+//create
 app.post("/create-item", (req, res) => {
   const title = req.body.title;
   const body = req.body.body;
@@ -71,6 +72,7 @@ app.post("/clear-all", (req, res) => {
   }
 });
 
+// gett
 app.get("/", (req, res) => {
   db.collection("notes_collection")
     .find()

@@ -38,6 +38,7 @@ document.addEventListener("click", (e) => {
       .then((response) => {
         if (response.data.success) {
           button.closest("li").remove();
+          location.reload();
         } else {
           console.error("Delete failed:", response.data.error);
         }
@@ -98,6 +99,7 @@ document.getElementById("create-form").addEventListener("submit", (e) => {
         title_input.value = "";
         body_input.value = "";
         title_input.focus();
+        location.reload();
       })
       .catch((error) =>
         console.log(`something went wrong in axios.post-then with ${error}`)
