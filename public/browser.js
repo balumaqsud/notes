@@ -80,6 +80,7 @@ document.getElementById("create-form").addEventListener("submit", (e) => {
       })
       .then((response) => {
         console.log("updated");
+        location.reload();
       })
       .catch((err) => {
         err;
