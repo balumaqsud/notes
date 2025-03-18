@@ -70,6 +70,17 @@ document.addEventListener("click", (e) => {
       })
       .catch((err) => err);
   }
+});
 
-  //update
+//another for update because it is big
+document.addEventListener("click", (e) => {
+  const li_item = e.target.closest(".list-group-item-indo");
+  if (li_item) {
+    const title = li_item.querySelector(".list_title").textContent.trim();
+    const body = li_item.querySelector(".list_body").textContent.trim();
+    console.log(title);
+    console.log(body);
+    document.getElementById("form_input_title").value = title;
+    document.getElementById("form_textarea_body").value = body;
+  }
 });
