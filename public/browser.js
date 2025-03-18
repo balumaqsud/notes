@@ -51,19 +51,14 @@ document.addEventListener("click", (e) => {
       .then((response) => location.reload())
       .catch((err) => err);
   }
-
-  if (e.target.classList.contains("list-group-itemp")) {
-    /////
-  }
   ///delete
   if (e.target.tagName === "IMG") {
     e.stopPropagation();
     e.target.closest(".delete_button").click();
   }
-
-  let button = e.target.closest(".delete_button");
-  let data_id = button.getAttribute("data-id");
   if (e.target.classList.contains("delete_button")) {
+    let button = e.target.closest(".delete_button");
+    let data_id = button.getAttribute("data-id");
     axios
       .post("delete-item", { id: data_id })
       .then((response) => {
@@ -75,4 +70,6 @@ document.addEventListener("click", (e) => {
       })
       .catch((err) => err);
   }
+
+  //update
 });
